@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 public class UnitConversionTest {
     UnitConversion unitConversion =new UnitConversion();
 
+    //feet testcases
     /**
      * Checking same different feet retuns false
      */
@@ -16,7 +17,7 @@ public class UnitConversionTest {
     }
 
     /**
-     * Checking same vlue of fee returns true
+     * Checking same value of fee returns true
      */
     @Test
     public void whenGivenRightFeetValueShouldPassTest() {
@@ -24,7 +25,7 @@ public class UnitConversionTest {
     }
 
     /**
-     * Checkingone null value with normal value
+     * Checking one null value with normal value
      */
     @Test
     public void whenGivenNullValueShouldFailTest() {
@@ -69,5 +70,22 @@ public class UnitConversionTest {
     @Test
     public void whenGivenValueAndSameValueShouldPassTest() {
         Assertions.assertEquals(unitConversion.feetDeclare(1.5),1.5);
+    }
+
+    //Inch testcases
+    /**
+     * Checking one null value with normal value
+     */
+    @Test
+    public void whenGivenNullInchValueShouldFailTest() {
+        Assertions.assertEquals(unitConversion.inchDeclare(null),1);
+    }
+
+    /*
+    checking null value of feet with null value
+     */
+    @Test
+    public void whenGivenNullInchValueShouldPassTest() {
+        Assertions.assertEquals(unitConversion.inchDeclare(null),null);
     }
 }
