@@ -9,14 +9,7 @@ public class UnitConversion {
     /*
     * Returning feet values if it gets input
     */
-    public <object> Object feetDeclare(object o) {
-        return o;
-    }
-
-    /*
-     * Returning nch values if it gets input
-     */
-    public <object> Object inchDeclare(object o) {
+    public <object> Object feetAndInchDeclare(object o) {
         return o;
     }
 }
