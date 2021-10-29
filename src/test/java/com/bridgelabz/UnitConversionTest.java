@@ -169,4 +169,13 @@ public class UnitConversionTest {
         Double result=unitConversion.feetIntoYard(res);
         Assertions.assertEquals(result,1);
     }
+
+    /**
+     * Checking 1 yard equals 3 feet
+     */
+    @Test
+    public void testingOneYardEqualsThreeFeetReturnPass(){
+        Double res=unitConversion.yardIntoFeet(1);
+        Assertions.assertEquals(res,3);
+    }
 }
