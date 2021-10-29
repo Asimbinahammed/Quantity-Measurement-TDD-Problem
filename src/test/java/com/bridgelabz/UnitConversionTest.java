@@ -13,7 +13,7 @@ public class UnitConversionTest {
      */
     @Test
     public void whenGivenWrongFeetValueShouldFailTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(0),1);
+        Assertions.assertEquals(unitConversion.feetAndInchDeclare(0.0),1);
     }
 
     /**
@@ -119,5 +119,15 @@ public class UnitConversionTest {
     @Test
     public void whenGivenInchValueAndSameValueShouldPassTest() {
         Assertions.assertEquals(unitConversion.feetAndInchDeclare(1.5),1.5);
+    }
+
+    //Testing conversions
+    /**
+     * Checking 3 feet equals 1 yard
+     */
+    @Test
+    public void testingThreeFeetEqualsOneYard(){
+       Double res=unitConversion.feetIntoYard(3);
+        Assertions.assertEquals(res,1);
     }
 }
