@@ -126,7 +126,7 @@ public class UnitConversionTest {
      * Checking 3 feet equals 1 yard
      */
     @Test
-    public void testingThreeFeetEqualsOneYard(){
+    public void testingThreeFeetEqualsOneYardReturnPass(){
         Double res=unitConversion.feetIntoYard(3);
         Assertions.assertEquals(res,1);
     }
@@ -135,7 +135,7 @@ public class UnitConversionTest {
      * Checking 1 feet equals 1 yard
      */
     @Test
-    public void testingOneFeetEqualsOneYard(){
+    public void testingOneFeetEqualsOneYardReturnFail(){
         Double res=unitConversion.feetIntoYard(1);
         Assertions.assertEquals(res,1);
     }
@@ -144,9 +144,19 @@ public class UnitConversionTest {
      * Checking 1 inch equals 1 yard
      */
     @Test
-    public void testingOneInchEqualsOneYard(){
+    public void testingOneInchEqualsOneYardReturnFail(){
         Double res=unitConversion.inchIntoFeet(1);
         Double result=unitConversion.feetIntoYard(res);
         Assertions.assertEquals(result,1);
+    }
+
+    /**
+     * Checking 1 yard equals 36 inch
+     */
+    @Test
+    public void testingOneYardEquals36InchReturnPass(){
+        Double res=unitConversion.yardIntoFeet(1);
+        Double result=unitConversion.feetIntoInch(res);
+        Assertions.assertEquals(result,36);
     }
 }
