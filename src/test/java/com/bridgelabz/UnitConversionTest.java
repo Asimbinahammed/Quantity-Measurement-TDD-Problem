@@ -12,7 +12,7 @@ public class UnitConversionTest {
      */
     @Test
     public void whenGivenWrongFeetValueShouldFailTest() {
-        Assertions.assertEquals(unitConversion.feetDeclare(0),unitConversion.feetDeclare(1));
+        Assertions.assertEquals(unitConversion.feetDeclare(0),1);
     }
 
     /**
@@ -20,7 +20,7 @@ public class UnitConversionTest {
      */
     @Test
     public void whenGivenRightFeetValueShouldPassTest() {
-        Assertions.assertEquals(unitConversion.feetDeclare(0),unitConversion.feetDeclare(0));
+        Assertions.assertEquals(unitConversion.feetDeclare(0),0);
     }
 
     /**
@@ -28,7 +28,7 @@ public class UnitConversionTest {
      */
     @Test
     public void whenGivenNullValueShouldFailTest() {
-        Assertions.assertEquals(unitConversion.feetDeclare(null),unitConversion.feetDeclare(1));
+        Assertions.assertEquals(unitConversion.feetDeclare(null),1);
     }
 
     /*
@@ -36,7 +36,7 @@ public class UnitConversionTest {
      */
     @Test
     public void whenGivenNullValueShouldPassTest() {
-        Assertions.assertEquals(unitConversion.feetDeclare(null),unitConversion.feetDeclare(null));
+        Assertions.assertEquals(unitConversion.feetDeclare(null),null);
     }
 
     /**
@@ -44,7 +44,7 @@ public class UnitConversionTest {
      */
     @Test
     public void whenGivenIntValueAndDoubleValueShouldFailTest() {
-        Assertions.assertEquals(unitConversion.feetDeclare(1.0),unitConversion.feetDeclare(1));
+        Assertions.assertEquals(unitConversion.feetDeclare(1.0),1);
     }
 
     /**
@@ -52,6 +52,22 @@ public class UnitConversionTest {
      */
     @Test
     public void whenGivenDoubleValueAndDoubleValueShouldPassTest() {
-        Assertions.assertEquals(unitConversion.feetDeclare(1.0),unitConversion.feetDeclare(1.0));
+        Assertions.assertEquals(unitConversion.feetDeclare(1.0),1.0);
+    }
+
+    /**
+     * Checking value with another value
+     */
+    @Test
+    public void whenGivenValueAndDifferentValueShouldFailTest() {
+        Assertions.assertEquals(unitConversion.feetDeclare(1.0),4.6);
+    }
+
+    /**
+     * Checking value with same value
+     */
+    @Test
+    public void whenGivenValueAndSameValueShouldPassTest() {
+        Assertions.assertEquals(unitConversion.feetDeclare(1.5),1.5);
     }
 }
