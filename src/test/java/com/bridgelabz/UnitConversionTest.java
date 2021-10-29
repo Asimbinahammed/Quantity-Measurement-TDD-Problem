@@ -154,9 +154,19 @@ public class UnitConversionTest {
      * Checking 1 yard equals 36 inch
      */
     @Test
-    public void testingOneYardEquals36InchReturnPass(){
+    public void testingOneYardEqualsThirtySixInchReturnPass(){
         Double res=unitConversion.yardIntoFeet(1);
         Double result=unitConversion.feetIntoInch(res);
         Assertions.assertEquals(result,36);
+    }
+
+    /**
+     * Checking 36 inch equals 1 yard
+     */
+    @Test
+    public void testingThirtySixInchEqualsoneyardReturnPass(){
+        Double res=unitConversion.inchIntoFeet(36);
+        Double result=unitConversion.feetIntoYard(res);
+        Assertions.assertEquals(result,1);
     }
 }
