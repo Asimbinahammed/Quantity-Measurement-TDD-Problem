@@ -88,4 +88,21 @@ public class UnitConversionTest {
     public void whenGivenNullInchValueShouldPassTest() {
         Assertions.assertEquals(unitConversion.inchDeclare(null),null);
     }
+
+    /**
+     * Checking int value with double value
+     */
+    @Test
+    public void whenGivenInchIntValueAndDoubleValueShouldFailTest() {
+        Assertions.assertEquals(unitConversion.inchDeclare(1.0),1);
+    }
+
+    /**
+     * Checking double value with double value
+     */
+    @Test
+    public void whenGivenInchDoubleValueAndDoubleValueShouldPassTest() {
+        Assertions.assertEquals(unitConversion.inchDeclare(1.0),1.0);
+    }
+
 }
