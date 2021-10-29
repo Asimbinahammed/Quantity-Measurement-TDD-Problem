@@ -16,4 +16,14 @@ public class UnitConversionTest {
     public void whenGivenRightFeetValueShouldPassTest() {
         Assertions.assertEquals(unitConversion.feetDeclare(0),unitConversion.feetDeclare(0));
     }
+
+    @Test
+    public void whenGivenNullValueShouldFailTest() {
+        Assertions.assertEquals(unitConversion.feetDeclare(null),unitConversion.feetDeclare(1));
+    }
+
+    @Test
+    public void whenGivenNullValueShouldPassTest() {
+        Assertions.assertEquals(unitConversion.feetDeclare(null),unitConversion.feetDeclare(null));
+    }
 }

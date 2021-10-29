@@ -7,9 +7,9 @@ package com.bridglab;
 public class UnitConversion {
 
     /*
-    * Returning feet values if it gets input integer
+    * Returning feet values if it gets input 
     */
-    public int feetDeclare(int i) {
-        return i;
+    public <object> Object feetDeclare(object o) {
+        return o;
     }
 }
