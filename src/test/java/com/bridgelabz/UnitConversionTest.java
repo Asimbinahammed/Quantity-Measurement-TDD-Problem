@@ -5,177 +5,213 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class UnitConversionTest {
-    UnitConversion unitConversion =new UnitConversion();
-
-    //feet testcases
-    /**
-     * Checking same different feet retuns false
-     */
     @Test
-    public void whenGivenWrongFeetValueShouldFailTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(0.0),1);
+    void given0FeetAnd0Feet_ShouldReturnEqual() {
+        UnitConversion feet1 = new UnitConversion(UnitConversion.Unit.FEET, 0.0);
+        UnitConversion feet2 = new UnitConversion(UnitConversion.Unit.FEET, 0.0);
+        Assertions.assertEquals(feet1, feet2);
     }
 
-    /**
-     * Checking same value of fee returns true
-     */
     @Test
-    public void whenGivenRightFeetValueShouldPassTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(0),0);
+    void given0FeetAndNullFeet_ShouldReturnNotEqual() {
+        UnitConversion feet1 = new UnitConversion(UnitConversion.Unit.FEET, 0.0);
+        UnitConversion feet2 = null;
+        Assertions.assertNotEquals(feet1, feet2);
     }
 
-    /**
-     * Checking one null value with normal value
-     */
     @Test
-    public void whenGivenNullValueShouldFailTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(null),1);
+    void givenReference0FeetAnd1Feet_ShouldReturnNotEqual() {
+        UnitConversion feet1 = new UnitConversion(UnitConversion.Unit.FEET, 0.0);
+        UnitConversion feet2 = new UnitConversion(UnitConversion.Unit.FEET, 1.0);
+        Assertions.assertNotEquals(feet1, feet2);
     }
 
-    /*
-    checking null value of feet with null value
-     */
     @Test
-    public void whenGivenNullValueShouldPassTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(null),null);
+    void givenType0FeetAnd1Feet_ShouldReturnEqual() {
+        UnitConversion feet1 = new UnitConversion(UnitConversion.Unit.FEET, 0.0);
+        UnitConversion feet2 = new UnitConversion(UnitConversion.Unit.FEET, 1.0);
+        Assertions.assertEquals(feet1.getClass(), feet2.getClass());
     }
 
-    /**
-     * Checking int value with double value
-     */
     @Test
-    public void whenGivenIntValueAndDoubleValueShouldFailTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(1.0),1);
+    void givenValue0FeetAnd1Feet_ShouldReturnNotEqual() {
+        UnitConversion feet1 = new UnitConversion(UnitConversion.Unit.FEET, 0.0);
+        UnitConversion feet2 = new UnitConversion(UnitConversion.Unit.FEET, 1.0);
+        Assertions.assertNotEquals(feet1, feet2);
     }
 
-    /**
-     * Checking double value with double value
-     */
     @Test
-    public void whenGivenDoubleValueAndDoubleValueShouldPassTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(1.0),1.0);
+    void given0InchAnd0Inch_ShouldReturnEqual() {
+        UnitConversion inch1 = new UnitConversion(UnitConversion.Unit.INCH, 0.0);
+        UnitConversion inch2 = new UnitConversion(UnitConversion.Unit.INCH, 0.0);
+        Assertions.assertEquals(inch1, inch2);
     }
 
-    /**
-     * Checking value with another value
-     */
     @Test
-    public void whenGivenValueAndDifferentValueShouldFailTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(1.0),4.6);
+    void given0InchAndNullInch_ShouldReturnNotEqual() {
+        UnitConversion inch1 = new UnitConversion(UnitConversion.Unit.INCH, 0.0);
+        UnitConversion inch2 = null;
+        Assertions.assertNotEquals(inch1, inch2);
     }
 
-    /**
-     * Checking value with same value
-     */
     @Test
-    public void whenGivenValueAndSameValueShouldPassTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(1.5),1.5);
+    void givenReference0InchAnd1Inch_ShouldReturnNotEqual() {
+        UnitConversion inch1 = new UnitConversion(UnitConversion.Unit.INCH, 0.0);
+        UnitConversion inch2 = new UnitConversion(UnitConversion.Unit.INCH, 1.0);
+        Assertions.assertNotEquals(inch1, inch2);
     }
 
-    //Inch testcases
-    /**
-     * Checking one null value with normal value
-     */
     @Test
-    public void whenGivenNullInchValueShouldFailTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(null),1);
+    void givenType0InchAnd1Inch_ShouldReturnEqual() {
+        UnitConversion inch1 = new UnitConversion(UnitConversion.Unit.INCH, 0.0);
+        UnitConversion inch2 = new UnitConversion(UnitConversion.Unit.INCH, 1.0);
+        Assertions.assertEquals(inch1.getClass(), inch2.getClass());
     }
 
-    /*
-    checking null value of feet with null value
-     */
     @Test
-    public void whenGivenNullInchValueShouldPassTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(null),null);
+    void givenValue0InchAnd1Inch_ShouldReturnNotEqual() {
+        UnitConversion inch1 = new UnitConversion(UnitConversion.Unit.INCH, 0.0);
+        UnitConversion inch2 = new UnitConversion(UnitConversion.Unit.INCH, 1.0);
+        Assertions.assertNotEquals(inch1, inch2);
     }
 
-    /**
-     * Checking int value with double value
-     */
     @Test
-    public void whenGivenInchIntValueAndDoubleValueShouldFailTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(1.0),1);
+    void given1FeetAnd1Inch_WhenCompared_ShouldReturnNotEqual() {
+        UnitConversion feet = new UnitConversion(UnitConversion.Unit.FEET, 1.0);
+        UnitConversion inch = new UnitConversion(UnitConversion.Unit.INCH, 1.0);
+        boolean compareCheck = feet.compare(inch);
+        Assertions.assertFalse(compareCheck);
     }
 
-    /**
-     * Checking double value with double value
-     */
     @Test
-    public void whenGivenInchDoubleValueAndDoubleValueShouldPassTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(1.0),1.0);
+    void given0FeetAnd0Inch_WhenCompared_ShouldReturnEqualUnitConversion() {
+        UnitConversion feet = new UnitConversion(UnitConversion.Unit.FEET, 0.0);
+        UnitConversion inch = new UnitConversion(UnitConversion.Unit.INCH, 0.0);
+        boolean compareCheck = feet.compare(inch);
+        Assertions.assertTrue(compareCheck);
     }
 
-    /**
-     * Checking value with another value
-     */
     @Test
-    public void whenGivenInchValueAndDifferentValueShouldFailTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(1.0),4.6);
+    void given1InchAnd1Feet_WhenCompared_ShouldReturnNotEqualUnitConversion() {
+        UnitConversion inch = new UnitConversion(UnitConversion.Unit.INCH, 1.0);
+        UnitConversion feet = new UnitConversion(UnitConversion.Unit.FEET, 1.0);
+        boolean compareCheck = inch.compare(feet);
+        Assertions.assertFalse(compareCheck);
     }
 
-    /**
-     * Checking value with same value
-     */
     @Test
-    public void whenGivenInchValueAndSameValueShouldPassTest() {
-        Assertions.assertEquals(unitConversion.feetAndInchDeclare(1.5),1.5);
+    void given1FeetAnd1Feet_WhenCompared_ShouldReturnEqualUnitConversion() {
+        UnitConversion feet1 = new UnitConversion(UnitConversion.Unit.FEET, 1.0);
+        UnitConversion feet2 = new UnitConversion(UnitConversion.Unit.FEET, 1.0);
+        boolean compareCheck = feet1.compare(feet2);
+        Assertions.assertTrue(compareCheck);
     }
 
-    //Testing conversions
-    /**
-     * Checking 3 feet equals 1 yard
-     */
     @Test
-    public void testingThreeFeetEqualsOneYardReturnPass(){
-        Double res=unitConversion.feetIntoYard(3);
-        Assertions.assertEquals(res,1);
+    void given1InchAnd1Inch_WhenCompared_ShouldReturnEqualUnitConversion() {
+        UnitConversion inch1 = new UnitConversion(UnitConversion.Unit.INCH, 1.0);
+        UnitConversion inch2 = new UnitConversion(UnitConversion.Unit.INCH, 1.0);
+        boolean compareCheck = inch1.compare(inch2);
+        Assertions.assertTrue(compareCheck);
     }
 
-    /**
-     * Checking 1 feet equals 1 yard
-     */
     @Test
-    public void testingOneFeetEqualsOneYardReturnFail(){
-        Double res=unitConversion.feetIntoYard(1);
-        Assertions.assertEquals(res,1);
+    void given1FeetAnd12Inch_WhenCompared_ShouldReturnEqualUnitConversion() {
+        UnitConversion feet = new UnitConversion(UnitConversion.Unit.FEET, 1.0);
+        UnitConversion inch = new UnitConversion(UnitConversion.Unit.INCH, 12.0);
+        boolean compareCheck = feet.compare(inch);
+        Assertions.assertTrue(compareCheck);
     }
 
-    /**
-     * Checking 1 inch equals 1 yard
-     */
     @Test
-    public void testingOneInchEqualsOneYardReturnFail(){
-        Double res=unitConversion.inchIntoFeet(1);
-        Double result=unitConversion.feetIntoYard(res);
-        Assertions.assertEquals(result,1);
+    void given12InchAnd1Feet_WhenCompared_ShouldReturnEqualUnitConversion() {
+        UnitConversion inch = new UnitConversion(UnitConversion.Unit.INCH, 12.0);
+        UnitConversion feet = new UnitConversion(UnitConversion.Unit.FEET, 1.0);
+        boolean compareCheck = inch.compare(feet);
+        Assertions.assertTrue(compareCheck);
     }
 
-    /**
-     * Checking 1 yard equals 36 inch
-     */
     @Test
-    public void testingOneYardEqualsThirtySixInchReturnPass(){
-        Double res=unitConversion.yardIntoFeet(1);
-        Double result=unitConversion.feetIntoInch(res);
-        Assertions.assertEquals(result,36);
+    void given0YardAnd0Yard_ShouldReturnEqual() {
+        UnitConversion yard1 = new UnitConversion(UnitConversion.Unit.YARD, 0.0);
+        UnitConversion yard2 = new UnitConversion(UnitConversion.Unit.YARD, 0.0);
+        Assertions.assertEquals(yard1, yard2);
     }
 
-    /**
-     * Checking 36 inch equals 1 yard
-     */
     @Test
-    public void testingThirtySixInchEqualsoneyardReturnPass(){
-        Double res=unitConversion.inchIntoFeet(36);
-        Double result=unitConversion.feetIntoYard(res);
-        Assertions.assertEquals(result,1);
+    void givenValue0YardAnd1Yard_ShouldReturnNotEqual() {
+        UnitConversion yard1 = new UnitConversion(UnitConversion.Unit.YARD, 0.0);
+        UnitConversion yard2 = new UnitConversion(UnitConversion.Unit.YARD, 1.0);
+        Assertions.assertNotEquals(yard1, yard2);
     }
 
-    /**
-     * Checking 1 yard equals 3 feet
-     */
     @Test
-    public void testingOneYardEqualsThreeFeetReturnPass(){
-        Double res=unitConversion.yardIntoFeet(1);
-        Assertions.assertEquals(res,3);
+    void given0YardAndNullYard_ShouldReturnNotEqual() {
+        UnitConversion yard1 = new UnitConversion(UnitConversion.Unit.YARD, 0.0);
+        UnitConversion yard2 = null;
+        Assertions.assertNotEquals(yard1, yard2);
     }
+
+    @Test
+    void givenReference0YardAnd1Yard_ShouldReturnNotEqual() {
+        UnitConversion yard1 = new UnitConversion(UnitConversion.Unit.YARD, 0.0);
+        UnitConversion yard2 = new UnitConversion(UnitConversion.Unit.YARD, 1.0);
+        Assertions.assertNotEquals(yard1, yard2);
+    }
+
+    @Test
+    void givenType0YardAnd1Yard_ShouldReturnEqual() {
+        UnitConversion yard1 = new UnitConversion(UnitConversion.Unit.YARD, 0.0);
+        UnitConversion yard2 = new UnitConversion(UnitConversion.Unit.YARD, 1.0);
+        Assertions.assertEquals(yard1.getClass(), yard2.getClass());
+    }
+
+    @Test
+    void given3FeetAnd1Yard_WhenCompared_ShouldReturnEqualUnitConversion() {
+        UnitConversion feet = new UnitConversion(UnitConversion.Unit.FEET, 3.0);
+        UnitConversion yard = new UnitConversion(UnitConversion.Unit.YARD, 1.0);
+        boolean compareCheck = feet.compare(yard);
+        Assertions.assertTrue(compareCheck);
+    }
+
+    @Test
+    void given1FeetAnd1Yard_WhenCompared_ShouldReturnNotEqualUnitConversion() {
+        UnitConversion feet = new UnitConversion(UnitConversion.Unit.FEET, 1.0);
+        UnitConversion yard = new UnitConversion(UnitConversion.Unit.YARD, 1.0);
+        boolean compareCheck = feet.compare(yard);
+        Assertions.assertFalse(compareCheck);
+    }
+
+    @Test
+    void given1InchAnd1Yard_WhenCompared_ShouldReturnNotEqualUnitConversion() {
+        UnitConversion inch = new UnitConversion(UnitConversion.Unit.INCH, 1.0);
+        UnitConversion yard = new UnitConversion(UnitConversion.Unit.YARD, 1.0);
+        boolean compareCheck = inch.compare(yard);
+        Assertions.assertFalse(compareCheck);
+    }
+
+    @Test
+    void given36InchAnd1Yard_WhenCompared_ShouldReturnEqualUnitConversion() {
+        UnitConversion inch = new UnitConversion(UnitConversion.Unit.INCH, 36.0);
+        UnitConversion yard = new UnitConversion(UnitConversion.Unit.YARD, 1.0);
+        boolean compareCheck = inch.compare(yard);
+        Assertions.assertTrue(compareCheck);
+    }
+
+    @Test
+    void given1YardAnd36Inch_WhenCompared_ShouldReturnEqualUnitConversion() {
+        UnitConversion yard = new UnitConversion(UnitConversion.Unit.YARD, 1.0);
+        UnitConversion inch = new UnitConversion(UnitConversion.Unit.INCH, 36.0);
+        boolean compareCheck = yard.compare(inch);
+        Assertions.assertTrue(compareCheck);
+    }
+
+    @Test
+    void given1YardAnd3Feet_WhenCompared_ShouldReturnEqualUnitConversion() {
+        UnitConversion yard = new UnitConversion(UnitConversion.Unit.YARD, 1.0);
+        UnitConversion feet = new UnitConversion(UnitConversion.Unit.FEET, 3.0);
+        boolean compareCheck = yard.compare(feet);
+        Assertions.assertTrue(compareCheck);
+    }
+
 }
