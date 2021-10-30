@@ -214,4 +214,54 @@ public class UnitConversionTest {
         Assertions.assertTrue(compareCheck);
     }
 
+    @Test
+    void given0CentimeterAnd0Centimeter_ShouldReturnEqual() {
+        UnitConversion centimeter1 = new UnitConversion(UnitConversion.Unit.CENTIMETER, 0.0);
+        UnitConversion centimeter2 = new UnitConversion(UnitConversion.Unit.CENTIMETER, 0.0);
+        Assertions.assertEquals(centimeter1, centimeter2);
+    }
+
+    @Test
+    void givenValue0CentimeterAnd1Centimeter_ShouldReturnNotEqual() {
+        UnitConversion centimeter1 = new UnitConversion(UnitConversion.Unit.CENTIMETER, 0.0);
+        UnitConversion centimeter2 = new UnitConversion(UnitConversion.Unit.CENTIMETER, 1.0);
+        Assertions.assertNotEquals(centimeter1, centimeter2);
+    }
+
+    @Test
+    void given0CentimeterAndNullCentimeter_ShouldReturnNotEqual() {
+        UnitConversion centimeter1 = new UnitConversion(UnitConversion.Unit.CENTIMETER, 0.0);
+        UnitConversion centimeter2 = null;
+        Assertions.assertNotEquals(centimeter1, centimeter2);
+    }
+
+    @Test
+    void givenReference0CentimeterAnd1Centimeter_ShouldReturnNotEqual() {
+        UnitConversion centimeter1 = new UnitConversion(UnitConversion.Unit.CENTIMETER, 0.0);
+        UnitConversion centimeter2 = new UnitConversion(UnitConversion.Unit.CENTIMETER, 1.0);
+        Assertions.assertNotEquals(centimeter1, centimeter2);
+    }
+
+    @Test
+    void givenType0CentimeterAnd1Centimeter_ShouldReturnEqual() {
+        UnitConversion centimeter1 = new UnitConversion(UnitConversion.Unit.CENTIMETER, 0.0);
+        UnitConversion centimeter2 = new UnitConversion(UnitConversion.Unit.CENTIMETER, 1.0);
+        Assertions.assertEquals(centimeter1.getClass(), centimeter2.getClass());
+    }
+
+    @Test
+    void given2InchAnd5Centimeter_WhenCompared_ShouldReturnEqualUnitConversion() {
+        UnitConversion inch = new UnitConversion(UnitConversion.Unit.INCH, 2.0);
+        UnitConversion centimeter = new UnitConversion(UnitConversion.Unit.CENTIMETER, 5.0);
+        boolean compareCheck = inch.compare(centimeter);
+        Assertions.assertTrue(compareCheck);
+    }
+
+    @Test
+    void given5CentimeterAnd2Inch_WhenCompared_ShouldReturnEqualUnitConversion() {
+        UnitConversion centimeter = new UnitConversion(UnitConversion.Unit.CENTIMETER, 5.0);
+        UnitConversion inch = new UnitConversion(UnitConversion.Unit.INCH, 2.0);
+        boolean compareCheck = centimeter.compare(inch);
+        Assertions.assertTrue(compareCheck);
+    }
 }

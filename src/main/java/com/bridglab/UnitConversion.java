@@ -44,6 +44,12 @@ public class UnitConversion {
             return Double.compare(this.value, that.value * YARD_TO_FEET) == 0;
         if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.YARD))
             return Double.compare(this.value, that.value * YARD_TO_INCH) == 0;
+        if (this.unit.equals(Unit.CENTIMETER) && that.unit.equals(Unit.CENTIMETER))
+            return Double.compare(this.value, that.value) == 0;
+        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.CENTIMETER))
+            return Double.compare(this.value * INCH_TO_CENTIMETER, that.value) == 0;
+        if (this.unit.equals(Unit.CENTIMETER) && that.unit.equals(Unit.INCH))
+            return Double.compare(this.value, that.value * INCH_TO_CENTIMETER) == 0;
         return false;
     }
 
@@ -56,7 +62,7 @@ public class UnitConversion {
     }
 
     public enum Unit {
-        FEET, INCH, YARD
+        FEET, INCH, YARD, CENTIMETER
     }
 
 }
