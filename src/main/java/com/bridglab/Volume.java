@@ -5,7 +5,7 @@ package com.bridglab;
  *           to override a method
  */
 public enum Volume implements MeasurementUnits{
-    GALLON(3.78),LITRE(1.0),MILILITER(0.0001);
+    GALLON(3.78),LITRE(1.0),MILLILITRE(0.001);
 
     private final double conversionValue;
 
