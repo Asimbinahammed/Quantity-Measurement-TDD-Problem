@@ -39,4 +39,9 @@ public class UnitConversion {
         UnitConversion that = (UnitConversion) o;
         return Double.compare(that.value, value) == 0 && unit.equals(that.unit);
     }
+
+    public UnitConversion addition(UnitConversion that,MeasurementUnits requiredUnit){
+        double sumOfInput=this.unit.convertToBaseUnit(this)+that.unit.convertToBaseUnit(that);
+        return new UnitConversion(requiredUnit,sumOfInput);
+    }
 }

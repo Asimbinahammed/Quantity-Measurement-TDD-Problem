@@ -267,4 +267,13 @@ public class ConversionTest {
         Assertions.assertTrue(compareCheck);
     }
 
+    @Test
+    void given2InchAnd2Inch_WhenAdded_ShouldReturn4Inch() {
+        UnitConversion inch1 = new UnitConversion(Length.INCH, 2.0);
+        UnitConversion inch2 = new UnitConversion(Length.INCH, 2.0);
+        UnitConversion actualValue = inch1.addition(inch2, Length.INCH);
+        UnitConversion expectedValue = new UnitConversion(Length.INCH, 4.0);
+        Assertions.assertEquals(expectedValue, actualValue);
+    }
+
 }
