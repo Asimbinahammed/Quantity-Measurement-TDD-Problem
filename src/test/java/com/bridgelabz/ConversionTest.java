@@ -3,6 +3,7 @@ package com.bridgelabz;
 import com.bridglab.Length;
 import com.bridglab.UnitConversion;
 import com.bridglab.Volume;
+import com.bridglab.Weight;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -482,4 +483,14 @@ public class ConversionTest {
         UnitConversion expectedValue = new UnitConversion(Volume.LITRE, 2.0);
         Assertions.assertEquals(expectedValue, actualValue);
     }
+
+    @Test
+    void given1000gramAnd1Kilogram_WhenCompared_ShouldReturnEqualVolume() {
+        UnitConversion value1 = new UnitConversion(Weight.GRAM, 1000.0);
+        UnitConversion value2 = new UnitConversion(Weight.KILOGRAM, 1.0);
+        boolean compareCheck = value1.compare(value2);
+        Assertions.assertTrue(compareCheck);
+    }
+
+
 }
