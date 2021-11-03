@@ -284,4 +284,13 @@ public class ConversionTest {
         UnitConversion expectedValue = new UnitConversion(Length.INCH, 14.0);
         Assertions.assertEquals(expectedValue, actualValue);
     }
+
+    @Test
+    void given1FeetAnd1Feet_WhenAdded_ShouldReturn24Inch() {
+        UnitConversion inch1 = new UnitConversion(Length.FEET, 1.0);
+        UnitConversion inch2 = new UnitConversion(Length.FEET, 1.0);
+        UnitConversion actualValue = inch1.addition(inch2, Length.INCH);
+        UnitConversion expectedValue = new UnitConversion(Length.INCH, 24.0);
+        Assertions.assertEquals(expectedValue, actualValue);
+    }
 }
