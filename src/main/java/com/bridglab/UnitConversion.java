@@ -40,6 +40,12 @@ public class UnitConversion {
         return Double.compare(that.value, value) == 0 && unit.equals(that.unit);
     }
 
+    /**
+     * Purpose : for addition 
+     * @param that : This is the first parameter which is taking the unit length value
+     * @param requiredUnit : This is the second parameter which is taking enum variables
+     * @return the adding value
+     */
     public UnitConversion addition(UnitConversion that,MeasurementUnits requiredUnit){
         double sumOfInput=this.unit.convertToBaseUnit(this)+that.unit.convertToBaseUnit(that);
         return new UnitConversion(requiredUnit,sumOfInput);
