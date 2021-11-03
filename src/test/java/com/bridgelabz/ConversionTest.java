@@ -464,4 +464,14 @@ public class ConversionTest {
         boolean compareCheck = millilitre.compare(litre);
         Assertions.assertTrue(compareCheck);
     }
+
+    @Test
+    void given1GallonAnd3$78Litre_WhenAdded_ShouldReturn5$75litre() {
+        UnitConversion gallon = new UnitConversion(Volume.GALLON, 1.0);
+        UnitConversion litre = new UnitConversion(Volume.LITRE, 3.78);
+        UnitConversion actualValue = gallon.addition(litre, Volume.LITRE);
+        UnitConversion expectedValue = new UnitConversion(Volume.LITRE, 7.56);
+        Assertions.assertEquals(expectedValue, actualValue);
+    }
+    
 }
