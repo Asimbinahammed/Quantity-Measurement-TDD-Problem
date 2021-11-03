@@ -493,12 +493,20 @@ public class ConversionTest {
     }
 
     @Test
-    void given1000KilogramAnd11Tonne_WhenCompared_ShouldReturnEqualVWeight() {
+    void given1000KilogramAnd1Tonne_WhenCompared_ShouldReturnEqualWeight() {
         UnitConversion value1 = new UnitConversion(Weight.KILOGRAM, 1000.0);
         UnitConversion value2 = new UnitConversion(Weight.TONNE, 1.0);
         boolean compareCheck = value1.compare(value2);
         Assertions.assertTrue(compareCheck);
     }
 
+    @Test
+    void given1000gramAnd1Tonne_WhenAdded_ShouldReturn1001Kilogram() {
+        UnitConversion value1 = new UnitConversion(Weight.GRAM, 1000.0);
+        UnitConversion value2 = new UnitConversion(Weight.TONNE, 1.0);
+        UnitConversion expectedValue = value1.addition(value2, Weight.KILOGRAM);
+        UnitConversion actualValue = new UnitConversion(Weight.KILOGRAM, 1001.0);
+        Assertions.assertEquals(expectedValue, actualValue);
+    }
 
 }
