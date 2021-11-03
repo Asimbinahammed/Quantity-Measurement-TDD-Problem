@@ -7,62 +7,36 @@ package com.bridglab;
 
 public class UnitConversion {
 
-    private final Unit unit;
-    private final Double value;
-    private final double FEET_TO_INCH = 12;
-    private final double YARD_TO_FEET = 3;
-    private final double YARD_TO_INCH = 36;
-    private final double INCH_TO_CENTIMETER = 2.5;
+    public double value;
+    public MeasurementUnits unit;
 
-    public UnitConversion(Unit unit, Double value) {
+    public UnitConversion(MeasurementUnits unit, Double value) {
         this.unit = unit;
         this.value = value;
     }
 
     /**
-     * Purpose : This method is created to compare the unit lengths
-     *
-     * @param that : This is the parameter which is taking a length
-     * @return the compared value
+     * Purpose: compare two values
+     * @param that
+     * @return boolean value after comparison
      */
-    public boolean compare(UnitConversion that) {
-        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.FEET))
-            return Double.compare(this.value, that.value) == 0;
-        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.INCH))
-            return Double.compare(this.value * FEET_TO_INCH, that.value) == 0;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.INCH))
-            return Double.compare(this.value, that.value) == 0;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.FEET))
-            return Double.compare(this.value, that.value * FEET_TO_INCH) == 0;
-        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.YARD))
-            return Double.compare(this.value, that.value) == 0;
-        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.FEET))
-            return Double.compare(this.value * YARD_TO_FEET, that.value) == 0;
-        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.INCH))
-            return Double.compare(this.value * YARD_TO_INCH, that.value) == 0;
-        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.YARD))
-            return Double.compare(this.value, that.value * YARD_TO_FEET) == 0;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.YARD))
-            return Double.compare(this.value, that.value * YARD_TO_INCH) == 0;
-        if (this.unit.equals(Unit.CENTIMETER) && that.unit.equals(Unit.CENTIMETER))
-            return Double.compare(this.value, that.value) == 0;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.CENTIMETER))
-            return Double.compare(this.value * INCH_TO_CENTIMETER, that.value) == 0;
-        if (this.unit.equals(Unit.CENTIMETER) && that.unit.equals(Unit.INCH))
-            return Double.compare(this.value, that.value * INCH_TO_CENTIMETER) == 0;
-        return false;
+    public boolean compare(UnitConversion that){
+        if (this.unit.equals(that.unit))
+            return this.equals(that);
+        return Double.compare(this.unit.convertToBaseUnit(this), that.unit.convertToBaseUnit(that)) == 0;
     }
 
+    /**
+     *Purpose : To override the equals() method for checking equality of two object references
+     *          and the values of that two objects
+     * @param o parameter which is taking Object class reference
+     * @return checked value of those two objects
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UnitConversion length = (UnitConversion) o;
-        return Double.compare(length.value, value) == 0 && unit == length.unit;
+        UnitConversion that = (UnitConversion) o;
+        return Double.compare(that.value, value) == 0 && unit.equals(that.unit);
     }
-
-    public enum Unit {
-        FEET, INCH, YARD, CENTIMETER
-    }
-
 }
