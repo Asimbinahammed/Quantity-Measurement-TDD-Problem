@@ -1,9 +1,6 @@
 package com.bridgelabz;
 
-import com.bridglab.Length;
-import com.bridglab.UnitConversion;
-import com.bridglab.Volume;
-import com.bridglab.Weight;
+import com.bridglab.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -507,6 +504,49 @@ public class ConversionTest {
         UnitConversion expectedValue = value1.addition(value2, Weight.KILOGRAM);
         UnitConversion actualValue = new UnitConversion(Weight.KILOGRAM, 1001.0);
         Assertions.assertEquals(expectedValue, actualValue);
+    }
+
+    @Test
+    void given0FahrenheitAnd0Fahrenheit_ShouldReturnEqual() {
+        UnitConversion fahrenheit1 = new UnitConversion(Temperature.FAHRENHEIT, 0.0);
+        UnitConversion fahrenheit2 = new UnitConversion(Temperature.FAHRENHEIT, 0.0);
+        Assertions.assertEquals(fahrenheit1, fahrenheit2);
+    }
+
+    @Test
+    void givenValue0FahrenheitAnd1Fahrenheit_ShouldReturnNotEqual() {
+        UnitConversion fahrenheit1 = new UnitConversion(Temperature.FAHRENHEIT, 0.0);
+        UnitConversion fahrenheit2 = new UnitConversion(Temperature.FAHRENHEIT, 1.0);
+        Assertions.assertNotEquals(fahrenheit1, fahrenheit2);
+    }
+
+    @Test
+    void given0FahrenheitAndNullFahrenheit_ShouldReturnNotEqual() {
+        UnitConversion fahrenheit1 = new UnitConversion(Temperature.FAHRENHEIT, 0.0);
+        UnitConversion fahrenheit2 = null;
+        Assertions.assertNotEquals(fahrenheit1, fahrenheit2);
+    }
+
+    @Test
+    void givenReference0FahrenheitAnd1Fahrenheit_ShouldReturnNotEqual() {
+        UnitConversion fahrenheit1 = new UnitConversion(Temperature.FAHRENHEIT, 0.0);
+        UnitConversion fahrenheit2 = new UnitConversion(Temperature.FAHRENHEIT, 1.0);
+        Assertions.assertNotEquals(fahrenheit1, fahrenheit2);
+    }
+
+    @Test
+    void givenType0FahrenheitAnd1Fahrenheit_ShouldReturnEqual() {
+        UnitConversion fahrenheit1 = new UnitConversion(Temperature.FAHRENHEIT, 0.0);
+        UnitConversion fahrenheit2 = new UnitConversion(Temperature.FAHRENHEIT, 1.0);
+        Assertions.assertEquals(fahrenheit1.getClass(), fahrenheit2.getClass());
+    }
+
+    @Test
+    void given212FahrenheitAnd100Celsius_WhenCompared_ShouldReturnEqualTemperature() {
+        UnitConversion fahrenheit = new UnitConversion(Temperature.FAHRENHEIT, 212.0);
+        UnitConversion celsius = new UnitConversion(Temperature.CELSIUS, 100.0);
+        boolean compareCheck = fahrenheit.compare(celsius);
+        Assertions.assertTrue(compareCheck);
     }
 
 }
