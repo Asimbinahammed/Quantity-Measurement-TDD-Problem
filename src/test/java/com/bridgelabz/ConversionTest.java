@@ -2,6 +2,7 @@ package com.bridgelabz;
 
 import com.bridglab.Length;
 import com.bridglab.UnitConversion;
+import com.bridglab.Volume;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -301,5 +302,13 @@ public class ConversionTest {
         UnitConversion actualValue = inch1.addition(inch2, Length.INCH);
         UnitConversion expectedValue = new UnitConversion(Length.INCH, 3.0);
         Assertions.assertEquals(expectedValue, actualValue);
+    }
+
+    @Test
+    void given1Gallon_WhenComparedTo3$78Litre_ShouldReturntrue() {
+        UnitConversion gallon = new UnitConversion(Volume.GALLON, 1.0);
+        UnitConversion litre = new UnitConversion(Volume.LITRE, 3.78);
+        boolean compareCheck = gallon.compare(litre);
+        Assertions.assertTrue(compareCheck);
     }
 }
