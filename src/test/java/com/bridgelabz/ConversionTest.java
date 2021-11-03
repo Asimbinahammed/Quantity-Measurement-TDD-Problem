@@ -473,5 +473,13 @@ public class ConversionTest {
         UnitConversion expectedValue = new UnitConversion(Volume.LITRE, 7.56);
         Assertions.assertEquals(expectedValue, actualValue);
     }
-    
+
+    @Test
+    void given1litreAnd1000Millilitre_WhenAdded_ShouldReturn2litre() {
+        UnitConversion litre = new UnitConversion(Volume.LITRE, 1.0);
+        UnitConversion milliLitre = new UnitConversion(Volume.MILLILITRE, 1000.0);
+        UnitConversion actualValue = litre.addition(milliLitre, Volume.LITRE);
+        UnitConversion expectedValue = new UnitConversion(Volume.LITRE, 2.0);
+        Assertions.assertEquals(expectedValue, actualValue);
+    }
 }
